@@ -13,6 +13,7 @@ from django.conf.global_settings import *  # NOQA
 
 import os
 import os.path
+import re
 import socket
 import sys
 import tempfile
@@ -1377,3 +1378,6 @@ JS_SDK_LOADER_CDN_URL = ''
 JS_SDK_LOADER_SDK_VERSION = ''
 # This should be the url pointing to the JS SDK
 JS_SDK_LOADER_DEFAULT_SDK_URL = ''
+
+# too much junk happening from bots, lets kill things that clearly shouldn't be humans
+INVALID_EMAIL_ADDRESS_PATTERN = re.compile(r'^\d+\@qq\.com$', re.I)
